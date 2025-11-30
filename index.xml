@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FlightBuddy</title>
+    <link>https://flightbuddy.in/</link>
+    <description>Recent content on FlightBuddy</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>rohilaharsh@gmail.com (Harsh Rohila)</managingEditor>
+    <webMaster>rohilaharsh@gmail.com (Harsh Rohila)</webMaster>
+    <atom:link href="https://flightbuddy.in/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Imprint</title>
+      <link>https://flightbuddy.in/imprint/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>rohilaharsh@gmail.com (Harsh Rohila)</author>
+      <guid>https://flightbuddy.in/imprint/</guid>
+      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id rhoncus est. Nullam sit amet justo nisi. Aliquam elementum iaculis nulla bibendum congue. Integer convallis ut nisi at tincidunt. Sed eu diam ex. Ut efficitur velit ut ultrices semper. Morbi suscipit ut purus a placerat. Cras massa lorem, pretium et nibh in, faucibus fermentum dolor. Nulla lacinia malesuada molestie. Proin et risus turpis. Aenean lacinia, orci at egestas fringilla, sem libero facilisis lectus, ut porta justo ligula a quam. Mauris vulputate purus mauris, eget semper ante rutrum id. Duis vestibulum, turpis at ultricies aliquam, enim dolor lobortis leo, at laoreet elit odio at nunc. Aliquam sit amet erat mi.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Privacy Policy</title>
+      <link>https://flightbuddy.in/privacy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>rohilaharsh@gmail.com (Harsh Rohila)</author>
+      <guid>https://flightbuddy.in/privacy/</guid>
+      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id rhoncus est. Nullam sit amet justo nisi. Aliquam elementum iaculis nulla bibendum congue. Integer convallis ut nisi at tincidunt. Sed eu diam ex. Ut efficitur velit ut ultrices semper. Morbi suscipit ut purus a placerat. Cras massa lorem, pretium et nibh in, faucibus fermentum dolor. Nulla lacinia malesuada molestie. Proin et risus turpis. Aenean lacinia, orci at egestas fringilla, sem libero facilisis lectus, ut porta justo ligula a quam. Mauris vulputate purus mauris, eget semper ante rutrum id. Duis vestibulum, turpis at ultricies aliquam, enim dolor lobortis leo, at laoreet elit odio at nunc. Aliquam sit amet erat mi.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
