@@ -1,0 +1,3 @@
+[submodule "themes/hugo-landing-page"]
+	path = themes/hugo-landing-page
+	url = https://github.com/ttntm/hugo-landing-page.git

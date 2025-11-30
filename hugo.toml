@@ -1,0 +1,15 @@
+baseURL = 'https://flightbuddy.in/'
+languageCode = 'en-us'
+title = 'FlightBuddy'
+theme = 'hugo-landing-page'
+googleAnalytics = ""
+
+[params]
+	description = "FlightBuddy - Book a cab with your flight buddy."
+
+[params.author]
+    name = "Harsh Rohila"
+    email = "rohilaharsh@gmail.com"
+
+[params.api]
+    baseUrl = ""

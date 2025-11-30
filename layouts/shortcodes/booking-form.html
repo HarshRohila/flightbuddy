@@ -1,0 +1,210 @@
+<div class="w-full max-w-2xl mx-auto my-12">
+  <form id="booking-form" class="space-y-6">
+    <!-- Full Name -->
+    <div>
+      <label for="fullName" class="block text-gray-800 font-medium mb-2"
+        >Full Name</label
+      >
+      <input
+        type="text"
+        id="fullName"
+        name="fullName"
+        required
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
+        placeholder="Enter your full name"
+      />
+    </div>
+
+    <!-- Phone Number -->
+    <div>
+      <label for="phoneNumber" class="block text-gray-800 font-medium mb-2"
+        >Email or Mobile Number</label
+      >
+      <input
+        type="text"
+        id="phoneNumber"
+        name="phoneNumber"
+        required
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
+        placeholder="Email / Mobile"
+      />
+    </div>
+
+    <!-- Flight Number -->
+    <div>
+      <label for="flightNumber" class="block text-gray-800 font-medium mb-2"
+        >Flight Number</label
+      >
+      <input
+        type="text"
+        id="flightNumber"
+        name="flightNumber"
+        required
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
+        placeholder="Enter your flight number"
+      />
+    </div>
+
+    <!-- Pick Up Airport -->
+    <div>
+      <label for="pickUpAirport" class="block text-gray-800 font-medium mb-2"
+        >Pick Up Airport</label
+      >
+      <input
+        type="text"
+        id="pickUpAirport"
+        name="pickUpAirport"
+        required
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
+        placeholder="Enter pick up airport"
+      />
+    </div>
+
+    <!-- Arrival Date & Time -->
+    <div>
+      <label for="arrivalDateTime" class="block text-gray-800 font-medium mb-2"
+        >Arrival Date & Time</label
+      >
+      <input
+        type="datetime-local"
+        id="arrivalDateTime"
+        name="arrivalDateTime"
+        required
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
+      />
+    </div>
+
+    <!-- Destination / Hotel / City -->
+    <div>
+      <label for="destination" class="block text-gray-800 font-medium mb-2"
+        >Destination / Hotel / City</label
+      >
+      <input
+        type="text"
+        id="destination"
+        name="destination"
+        required
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
+        placeholder="Enter destination, hotel, or city"
+      />
+    </div>
+
+    <!-- Special Notes -->
+    <div>
+      <label for="specialNotes" class="block text-gray-800 font-medium mb-2"
+        >Special Notes</label
+      >
+      <textarea
+        id="specialNotes"
+        name="specialNotes"
+        rows="4"
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-transparent"
+        placeholder="Any special notes or requirements (e.g., luggage details: count of check-in bags, handbags, laptop bags)..."
+      ></textarea>
+    </div>
+
+    <!-- Message Display -->
+    <div id="form-message" class="hidden px-4 py-3 rounded-lg"></div>
+
+    <!-- Submit Button -->
+    <div class="flex justify-center">
+      <button
+        type="submit"
+        id="submit-btn"
+        class="px-10 py-2 text-gray-200 bg-pink-600 rounded-full shadow-md text-lg hover:bg-gray-800 hover:border-red focus:outline-none focus:ring-2 focus:ring-pink-600 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        <span id="submit-text">Book Now</span>
+        <span id="submit-loading" class="hidden">Submitting...</span>
+      </button>
+    </div>
+  </form>
+</div>
+
+<script>
+  (function() {
+      const form = document.getElementById('booking-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const submitText = document.getElementById('submit-text');
+      const submitLoading = document.getElementById('submit-loading');
+      const messageDiv = document.getElementById('form-message');
+
+      const apiBaseUrl = {{ .Site.Params.api.baseUrl | default "" | jsonify }};
+      const apiEndpoint = apiBaseUrl ? `${apiBaseUrl}/bookings` : '/bookings';
+
+      function showMessage(message, isError = false) {
+          messageDiv.textContent = message;
+          messageDiv.className = isError
+              ? 'px-4 py-3 rounded-lg bg-red-100 text-red-700 border border-red-300'
+              : 'px-4 py-3 rounded-lg bg-green-100 text-green-700 border border-green-300';
+          messageDiv.classList.remove('hidden');
+
+          // Scroll to message
+          messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      function hideMessage() {
+          messageDiv.classList.add('hidden');
+      }
+
+      function setLoading(isLoading) {
+          if (isLoading) {
+              submitBtn.disabled = true;
+              submitText.classList.add('hidden');
+              submitLoading.classList.remove('hidden');
+          } else {
+              submitBtn.disabled = false;
+              submitText.classList.remove('hidden');
+              submitLoading.classList.add('hidden');
+          }
+      }
+
+      form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          hideMessage();
+          setLoading(true);
+
+          // Collect form data
+          const formData = {
+              fullName: document.getElementById('fullName').value.trim(),
+              phoneNumber: document.getElementById('phoneNumber').value.trim(),
+              flightNumber: document.getElementById('flightNumber').value.trim(),
+              pickUpAirport: document.getElementById('pickUpAirport').value.trim(),
+              arrivalDateTime: document.getElementById('arrivalDateTime').value,
+              destination: document.getElementById('destination').value.trim(),
+              specialNotes: document.getElementById('specialNotes').value.trim()
+          };
+
+          try {
+              const response = await fetch(apiEndpoint, {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(formData)
+              });
+
+              if (!response.ok) {
+                  const errorData = await response.json().catch(() => ({ message: 'Server down. Please try again later.' }));
+                  throw new Error(errorData.message || `Server error: ${response.status}`);
+              }
+
+              const data = await response.json().catch(() => ({}));
+
+              // Show success message
+              showMessage('Booking submitted successfully! We will contact you soon.', false);
+
+              // Reset form
+              form.reset();
+
+          } catch (error) {
+              console.error('Form submission error:', error);
+              showMessage(
+                  error.message || 'Failed to submit booking. Please try again later.',
+                  true
+              );
+          } finally {
+              setLoading(false);
+          }
+      });
+  })();
+</script>
