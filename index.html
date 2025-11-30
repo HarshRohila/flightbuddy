@@ -248,8 +248,8 @@
       const submitLoading = document.getElementById('submit-loading');
       const messageDiv = document.getElementById('form-message');
 
-      const apiBaseUrl = "\"\"";
-      const apiEndpoint = apiBaseUrl ? `${apiBaseUrl}/bookings` : '/bookings';
+      const apiBaseUrl = "https://20rfciqdc7.execute-api.ap-south-1.amazonaws.com";
+      const apiEndpoint = apiBaseUrl ? `${apiBaseUrl}/notify` : '/notify';
 
       function showMessage(message, isError = false) {
           messageDiv.textContent = message;
@@ -299,6 +299,7 @@
                   method: 'POST',
                   headers: {
                       'Content-Type': 'application/json',
+                      'x-api-key': 'oXlucJDJuRh91UCWWY5r3nslyjapr70F'
                   },
                   body: JSON.stringify(formData)
               });
