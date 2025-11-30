@@ -1,0 +1,14 @@
+{
+  "type": "module",
+  "scripts": {
+    "build": "hugo build",
+    "predeploy": "npm run build",
+    "deploy": "node scripts/deploy.js"
+  },
+  "dependencies": {
+    "gh-pages": "^6.3.0"
+  },
+  "devDependencies": {
+    "@types/gh-pages": "^6.1.0"
+  }
+}
