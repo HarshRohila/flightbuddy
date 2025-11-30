@@ -12,4 +12,4 @@ googleAnalytics = ""
     email = "rohilaharsh@gmail.com"
 
 [params.api]
-    baseUrl = ""
+    baseUrl = "https://20rfciqdc7.execute-api.ap-south-1.amazonaws.com"

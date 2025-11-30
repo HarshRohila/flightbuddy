@@ -128,8 +128,8 @@
       const submitLoading = document.getElementById('submit-loading');
       const messageDiv = document.getElementById('form-message');
 
-      const apiBaseUrl = {{ .Site.Params.api.baseUrl | default "" | jsonify }};
-      const apiEndpoint = apiBaseUrl ? `${apiBaseUrl}/bookings` : '/bookings';
+      const apiBaseUrl = {{ .Site.Params.api.baseUrl | default "" }};
+      const apiEndpoint = apiBaseUrl ? `${apiBaseUrl}/notify` : '/notify';
 
       function showMessage(message, isError = false) {
           messageDiv.textContent = message;
@@ -179,6 +179,7 @@
                   method: 'POST',
                   headers: {
                       'Content-Type': 'application/json',
+                      'x-api-key': 'oXlucJDJuRh91UCWWY5r3nslyjapr70F'
                   },
                   body: JSON.stringify(formData)
               });
