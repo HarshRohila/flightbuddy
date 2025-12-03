@@ -53,8 +53,10 @@
         <button id="menuBtn" class="hamburger block sm:hidden focus:outline-none" type="button" onclick="navToggle();" aria-label="Show Menu"><span class="hamburger__top-bun"></span><span class="hamburger__bottom-bun"></span></button>
     </div>
     <div id="menu" class="w-full sm:w-auto self-end sm:self-center hidden sm:flex flex-col sm:flex-row items-center h-full py-1 pb-4 sm:py-0 sm:pb-0">
-        <a class="text-gray-800 font-bold hover:text-pink-600 text-lg text-center w-full no-underline sm:w-auto sm:pr-4 py-2 sm:py-1" href="https://flightbuddy.in/#about">Book</a>
-        <a class="text-gray-800 font-bold hover:text-pink-600 text-lg text-center w-full no-underline sm:w-auto sm:pr-4 py-2 sm:py-1" href="https://flightbuddy.in/#how-it-works">How it Works</a>
+        <a onclick="handleNavItemClick()" class="text-gray-800 font-bold hover:text-pink-600 text-lg text-center w-full no-underline sm:w-auto sm:pr-4 py-2 sm:py-1" href="https://flightbuddy.in/#about">Book</a>
+        <a onclick="handleNavItemClick()" class="text-gray-800 font-bold hover:text-pink-600 text-lg text-center w-full no-underline sm:w-auto sm:pr-4 py-2 sm:py-1" href="https://flightbuddy.in/#how-it-works">How it Works</a>
+        <a onclick="handleNavItemClick()" class="text-gray-800 font-bold hover:text-pink-600 text-lg text-center w-full no-underline sm:w-auto sm:pr-4 py-2 sm:py-1" href="https://flightbuddy.in/#contact">Contact Us</a>
+        <a onclick="handleNavItemClick()" class="text-gray-800 font-bold hover:text-pink-600 text-lg text-center w-full no-underline sm:w-auto sm:pr-4 py-2 sm:py-1" href=".">Home</a>
     </div>
 </nav>
 
@@ -127,6 +129,10 @@
         btn.classList.toggle('open');
         nav.classList.toggle('flex');
         nav.classList.toggle('hidden');
+    }
+
+    function handleNavItemClick() {
+        navToggle();
     }
 
     window.addEventListener('scroll', function() {
