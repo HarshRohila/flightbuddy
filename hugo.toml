@@ -5,7 +5,7 @@ theme = 'hugo-landing-page'
 googleAnalytics = ""
 
 [params]
-	description = "FlightBuddy - Book a cab with your flight buddy."
+	description = "FlightBuddy - Book a cab with your flight buddy going to the same destination."
 
 [params.author]
     name = "Harsh Rohila"

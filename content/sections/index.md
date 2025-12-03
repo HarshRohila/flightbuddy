@@ -4,6 +4,8 @@ headless: true
 resources:
     - name: about
       src: about.md
+    - name: how-it-works
+      src: how-it-works.md
     - name: features
       src: features.md
     - name: register

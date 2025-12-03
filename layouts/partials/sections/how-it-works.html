@@ -1,0 +1,89 @@
+{{ $headless := .Site.GetPage "/sections" }} {{ $howItWorks :=
+$headless.Resources.GetMatch (printf "*%s*" "how-it-works") }}
+
+<div
+  id="how-it-works"
+  class="w-full min-h-screen flex flex-col justify-center items-center py-12 sm:py-16 px-4 bg-gradient-to-b from-gray-50 to-white"
+>
+  <div class="max-w-6xl mx-auto">
+    <!-- Section Title -->
+    <div class="text-center mb-12 sm:mb-16">
+      <h2
+        class="font-bold tracking-wider text-gray-800 text-3xl sm:text-4xl lg:text-5xl mb-4"
+      >
+        {{ $howItWorks.Title }}
+      </h2>
+      <div class="w-24 h-1 bg-pink-600 mx-auto rounded-full"></div>
+    </div>
+
+    <!-- Steps Container -->
+    <div class="flex flex-col md:flex-row gap-6 sm:gap-8">
+      <!-- Step 1 -->
+      <div
+        class="flex-1 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-gray-200 transform hover:-translate-y-1"
+      >
+        <div class="flex flex-col items-center text-center mb-6">
+          <div
+            class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-pink-600 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-2xl sm:text-3xl shadow-lg mb-4"
+          >
+            1
+          </div>
+          <h3 class="font-bold text-gray-800 text-xl sm:text-2xl mb-3">
+            Create a Booking Request
+          </h3>
+        </div>
+        <p
+          class="text-gray-600 text-base sm:text-lg leading-relaxed text-center"
+        >
+          Click the 'Book' button and fill in your flight details (flight
+          number, arrival time, destination, etc.)
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div
+        class="flex-1 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-gray-200 transform hover:-translate-y-1"
+      >
+        <div class="flex flex-col items-center text-center mb-6">
+          <div
+            class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-pink-600 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-2xl sm:text-3xl shadow-lg mb-4"
+          >
+            2
+          </div>
+          <h3 class="font-bold text-gray-800 text-xl sm:text-2xl mb-3">
+            Get Matched
+          </h3>
+        </div>
+        <p
+          class="text-gray-600 text-base sm:text-lg leading-relaxed text-center"
+        >
+          We'll contact you via email or phone once we find a flight buddy. A
+          small 5% service fee applies to confirm your match.
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div
+        class="flex-1 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-gray-200 transform hover:-translate-y-1"
+      >
+        <div class="flex flex-col items-center text-center mb-6">
+          <div
+            class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-pink-600 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-2xl sm:text-3xl shadow-lg mb-4"
+          >
+            3
+          </div>
+          <h3 class="font-bold text-gray-800 text-xl sm:text-2xl mb-3">
+            Share the Ride
+          </h3>
+        </div>
+        <p
+          class="text-gray-600 text-base sm:text-lg leading-relaxed text-center"
+        >
+          After your flight, you and your matched flight buddies complete the
+          journey together. Split the cab fare with your buddies and pay
+          directly to the driver.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
